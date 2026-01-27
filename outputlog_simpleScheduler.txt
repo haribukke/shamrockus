@@ -1,0 +1,110 @@
+Initial task statuses: [
+  Task {
+    id: 'task1',
+    duration: 2000,
+    dependencies: [],
+    status: 'QUEUED',
+    createdAt: 2026-01-27T04:17:45.918Z,
+    startedAt: null,
+    completedAt: null,
+    failedAt: null,
+    attempts: 0,
+    maxAttempts: 3
+  },
+  Task {
+    id: 'task2',
+    duration: 1000,
+    dependencies: [ 'task1' ],
+    status: 'PENDING',
+    createdAt: 2026-01-27T04:17:45.918Z,
+    startedAt: null,
+    completedAt: null,
+    failedAt: null,
+    attempts: 0,
+    maxAttempts: 3
+  },
+  Task {
+    id: 'task3',
+    duration: 1500,
+    dependencies: [ 'task1' ],
+    status: 'PENDING',
+    createdAt: 2026-01-27T04:17:45.918Z,
+    startedAt: null,
+    completedAt: null,
+    failedAt: null,
+    attempts: 0,
+    maxAttempts: 3
+  },
+  Task {
+    id: 'task4',
+    duration: 500,
+    dependencies: [ 'task2', 'task3' ],
+    status: 'PENDING',
+    createdAt: 2026-01-27T04:17:45.918Z,
+    startedAt: null,
+    completedAt: null,
+    failedAt: null,
+    attempts: 0,
+    maxAttempts: 3
+  }
+]
+Starting task task1
+current status
+task1 IN_PROGRESS
+task2 PENDING
+task3 PENDING
+task4 PENDING
+Task task1 failed
+Starting task task1
+Task task1 completed
+Starting task task2
+Starting task task3
+current status
+task1 COMPLETED
+task2 IN_PROGRESS
+task3 IN_PROGRESS
+task4 PENDING
+Task task2 completed
+Task task3 completed
+Starting task task4
+Task task4 completed
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
+current status
+task1 COMPLETED
+task2 COMPLETED
+task3 COMPLETED
+task4 COMPLETED
