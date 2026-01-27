@@ -64,3 +64,34 @@ curl -X POST http://localhost:3000/tasks \
 
 curl -X GET http://localhost:3000/tasks | jq .
 
+### step 3 storage
+
+Right now if we restart there is no way tasks will survive the restart. so we need to store them somewhere. So sqlite is the option.
+
+Why Sqlite - its small, installabled, and no external depdnecies.
+
+`npm install sqlite3`
+
+data model for this would be
+
+task
+ - id
+ - duration
+ - status
+ - dependencies
+ - created_at
+ - started_at
+ - completed_at
+ - failed_at
+ - attempts
+ - maxAttempts
+
+Created a new [schema.sql](./schema.sql) file for the db
+
+Created [persistent_server](./persistent_server.js) and [PersistentScheduler](./PersistentScheduler.js) which uses sqlite3 [database](./database.js). all logic that was present in SimpleScheduler using arrays are moved to db.
+
+The first time we run persistent_server, it will fail because there is no db. we have to run it again to start.
+
+wrote two scripts [test-persistence](./test-persistence.js) and [test-recovery](./test-recovery.js) to test them. first rnn test persistence and then test recovery. we will see that tasks are retained.
+
+
