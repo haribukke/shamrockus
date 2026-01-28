@@ -94,4 +94,16 @@ The first time we run persistent_server, it will fail because there is no db. we
 
 wrote two scripts [test-persistence](./test-persistence.js) and [test-recovery](./test-recovery.js) to test them. first rnn test persistence and then test recovery. we will see that tasks are retained.
 
+### step 4 race conditions
+
+The above solution will work for a single system/process, but if it is a distributed system/ multiple workers are available, then race conditions could occur. this would mean, a task could get executed in two different processes also.
+
+We should ensure that a task happens only once. One of the common methods to do this is by implementing locking feature.
+
+added locking mechanism in [database_locking](./database_locking.js)
+
+implemented a [Coordinator](./Coordinator.js) to manage the locking.
+
+
+
 
